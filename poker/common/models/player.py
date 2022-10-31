@@ -1,18 +1,11 @@
+from dataclasses import dataclass
 
 
+@dataclass(frozen=True)
 class Player:
 
-    def __init__(self, id: int, name: str | None = None):
-        self._id = id
-        self._name = name if name else f'Player {self._id}'
-
-    @property
-    def id(self) -> int:
-        return self._id
-
-    @property
-    def name(self):
-        return self._name
+    id: int
+    name: str | None = None
 
     def __eq__(self, other):
         if not isinstance(other, Player):
