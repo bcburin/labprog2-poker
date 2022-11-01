@@ -9,7 +9,7 @@ router = Router(prefix='action')
 
 
 @router.add(route='ask_for_player_action')
-def show_possible_actions(
+def ask_for_player_action(
         player_state: PlayerState,
         game_state: GameState
 ) -> tuple[Action, int | None]:
