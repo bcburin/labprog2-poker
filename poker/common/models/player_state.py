@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from poker.common.models.card import Card
 from poker.common.models.player import Player
+from poker.common.enums.role import Role
 
 
 @dataclass(frozen=True)
@@ -13,6 +14,7 @@ class PlayerState:
     player: Player
     cards: list[Card]
     amount: int
+    role: Role
     bet: int = 0
     active: bool = True
 
@@ -29,6 +31,9 @@ class PlayerState:
 
     def update_cards(self, cards: list[Card]) -> PlayerState:
         return self.update_state('cards', cards)
+
+    def update_role(self, role: Role) -> PlayerState:
+        return self.update_state('role', role)
 
     def update_bet(self, bet: int):
         if bet < 0:
