@@ -32,11 +32,15 @@ class CardRank(Enum):
     K = KING
 
     def __le__(self, other):
+        if not isinstance(other, CardRank):
+            raise ValueError(f'Cannot compare types CardRank and {type(other)}')
         return self.value < other.value
 
     def __eq__(self, other):
         if isinstance(other, int):
             return self.value == other
+        if not isinstance(other, CardRank):
+            return False
         return self.value == other.value
 
     def __str__(self):

@@ -11,8 +11,12 @@ class Street(Enum):
     RIVER = 4
 
     def __le__(self, other):
+        if not isinstance(other, Street):
+            raise ValueError(f'Cannot compare types Street and {type(other)}')
         return self.value < other.value
 
     def __eq__(self, other):
+        if not isinstance(other, Street):
+            return False
         return self.value == other.value
 

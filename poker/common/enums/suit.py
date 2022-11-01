@@ -19,11 +19,15 @@ class CardSuit(Enum):
     SPADES = 4
 
     def __le__(self, other):
+        if not isinstance(other, CardSuit):
+            raise ValueError(f'Cannot compare types CardSuit and {type(other)}')
         return self.value < other.value
 
     def __eq__(self, other):
         if isinstance(other, int):
             return self.value == other
+        if not isinstance(other, CardSuit):
+            return False
         return self.value == other.value
 
     def __str__(self):
