@@ -3,6 +3,6 @@ from enum import Enum
 
 class Role(Enum):
 
-    DEALER = 1
-    SMALL_BLIND = 2
-    BIG_BLIND = 3
+    DEALER = 'Dealer'
+    SMALL_BLIND = 'Small Blind'
+    BIG_BLIND = 'Big Blind'
