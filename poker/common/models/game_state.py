@@ -12,6 +12,7 @@ class GameState:
     pot: int
     bet: int
     street: Street
+    player_can_check: bool
 
     def get_state_of(self, player: Player) -> PlayerState:
         return self.player_states[player]
