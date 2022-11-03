@@ -7,6 +7,7 @@ from poker.common.models.game import Game
 from poker.common.models.game_state import GameState
 from poker.common.models.player import Player
 from poker.common.models.player_state import PlayerState
+from poker.common.utils import print_initial_game_info
 from poker.interface.api import api
 
 
@@ -28,6 +29,7 @@ async def test_ask_for_player_action():
         player_can_check=True,
         game=game
     )
+    print_initial_game_info(game_state)
     action, amount = await api.do_task('interface.action.ask_for_player_action', game_state=game_state)
     print(f'Chose action: {action} {amount if amount else ""}')
 

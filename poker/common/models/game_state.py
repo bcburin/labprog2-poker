@@ -18,9 +18,9 @@ class GameState:
     player_states: dict[Player, PlayerState]
     player_order: list[Player]
     current_player: Player
+    street: Street
     pot: int = 0
     bet: int = 0
-    street: Street = Street.PRE_FLOP
     start_of_street: bool = True
     player_can_check: bool = False
     deck: Deck = Deck.get_full_deck()
